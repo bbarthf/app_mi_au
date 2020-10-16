@@ -78,8 +78,10 @@ class _MyHomePageState extends State<MyHomePage> {
 }
 
 Widget card() {
+
+  // card principal 
   return Container(
-    color: AppColors.cardSlide,
+
     width: 340.0,
     height: 340.0,
     child: Column(
@@ -117,7 +119,7 @@ Widget card() {
             color: AppColors.cardSlide,
             image: const DecorationImage(
               image: NetworkImage(
-                  'https://i.guim.co.uk/img/media/684c9d087dab923db1ce4057903f03293b07deac/205_132_1915_1150/master/1915.jpg?width=1200&height=1200&quality=85&auto=format&fit=crop&s=14a95b5026c1567b823629ba35c40aa0'),
+              'https://images.wunderstock.com/Three-Brown-Puppies_2BdilPhGnYDA.jpeg'),
               fit: BoxFit.cover,
             ),
             border: Border.all(
@@ -129,13 +131,38 @@ Widget card() {
           width: 320.0,
           height: 220.0,
         ),
-
+      // brenda 13/10/2020
         // baixo
         Row(
-          children: [listadeICones(), listadeShare()],
-        )
+        textDirection: TextDirection.rtl,  
+        children:[
+        listadeICones(), listadeShare(),
+        Column(
+             children: [
+                Container(
+                      child: Text('Publicado hoje às 18:00', textAlign: TextAlign.left,
+                               overflow: TextOverflow.ellipsis),
+
+                ),
+                Container(
+                      child: Text('São Paulo', textAlign: TextAlign.left,
+                               overflow: TextOverflow.ellipsis),
+
+                ),
+             ]
+         ),
+          ]
+        ),
+
       ],
     ),
+     // brenda 13/10/2020 
+     decoration: BoxDecoration(
+     color: AppColors.cardSlide,
+     borderRadius: BorderRadius.circular(12),
+
+    ),
+
   );
 }
 
