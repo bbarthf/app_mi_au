@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
+      home: MyHomePage(title: 'Bem-Vindo MIAU'),
     );
   }
 }
@@ -90,26 +90,30 @@ Widget card() {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
+          // brenda 15/10/2020 
             Column(
               children: [
-                Container(
+                  FlatButton(
+                  onPressed: (){},
                   color: AppColors.secundary,
-                  width: 40.0,
-                  height: 40.0,
-                ),
-                Text("Oi Rapha")
+                  child: Text('ADOTAR')
+                     
+                  ),
               ],
             ),
-            Column(
+              Column(
               children: [
-                Container(
-                  color: AppColors.secundary,
+              Text("Kiko,Leandro,Bruno")
+              ],
+            ),
+            // 15/10/2020 - bolinha azul
+            Container(
+                 decoration :BoxDecoration(
+                                          shape:BoxShape.circle, color: AppColors.secundary),
                   width: 40.0,
                   height: 40.0,
-                ),
-                Text("Oi Rapha")
-              ],
-            )
+            ),
+
           ],
         ),
 
