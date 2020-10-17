@@ -1,4 +1,6 @@
+import 'package:Miau/model/pet.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 import 'commom/appColor.dart';
 
@@ -9,6 +11,10 @@ void main() {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setPreferredOrientations([
+      DeviceOrientation.portraitUp,
+    ]);
+
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
@@ -30,12 +36,35 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
+  List<Pet> list = [
+    Pet(
+      'Kiko',
+      '17/10/2020',
+      'São Paulo',
+      'https://images.wunderstock.com/Three-Brown-Puppies_2BdilPhGnYDA.jpeg',
+      'Laura',
+      '',
+      '(99) 99999-9999',
+    ),
+    Pet(
+      'Leandro',
+      '17/10/2020',
+      'São Paulo',
+      'https://img.ibxk.com.br/2014/06/06/06165614150388.jpg?w=1120&h=420&mode=crop&scale=both',
+      'Laura',
+      '',
+      '(99) 99999-9999',
+    )
+  ];
 
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
+  List<Widget> _createCards(List<Pet> l) {
+    List<Widget> ret = [];
+
+    list.forEach((element) {
+      ret.add(card(element));
     });
+
+    return ret;
   }
 
   @override
@@ -45,114 +74,117 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text(widget.title),
       ),
       body: Container(
-          color: AppColors.backgroud,
-          child: ListView(
-            padding: const EdgeInsets.all(8),
-            children: <Widget>[
-              card("Kiko"),
-              // card("Leandro"),
-            ],
-          )),
-      // floatingActionButton: FloatingActionButton(
-      //   onPressed: _incrementCounter,
-      //   tooltip: 'Increment',
-      //   child: Icon(Icons.add),
-      // ), // This trailing comma makes auto-formatting nicer for build methods.
+        color: AppColors.backgroud,
+        child: ListView(
+          children: _createCards(list),
+        ),
+      ),
     );
   }
 }
 
-Widget card(String nome) {
+Widget card(Pet pet) {
   // card principal
-  return Container(
-    width: 340.0,
-    height: 340.0,
-    child: Column(
-      children: [
-        //linha
-        Padding(
-          // inserir as margens da linha do top
-          padding: EdgeInsets.only(top: 20.0, left: 48.0, right: 48.0),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              // brenda 15/10/2020
-              Column(
-                // mainAxisAlignment: MainAxisAlignment.start, horizontal
-                crossAxisAlignment: CrossAxisAlignment.start, //vertica
-                children: [
-                  FlatButton(
+  return Padding(
+    padding: const EdgeInsets.all(8.0),
+    child: Container(
+      width: 340.0,
+      height: 340.0,
+      child: Column(
+        children: [
+          //linha
+          Padding(
+            // inserir as margens da linha do top
+            padding: EdgeInsets.only(top: 20.0, left: 48.0, right: 48.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                // brenda 15/10/2020
+                Column(
+                  // mainAxisAlignment: MainAxisAlignment.start, horizontal
+                  crossAxisAlignment: CrossAxisAlignment.start, //vertica
+                  children: [
+                    FlatButton(
                       onPressed: () {},
                       color: AppColors.secundary,
-                      child: Text('ADOTAR')),
-                  Text(nome)
-                ],
-              ),
-              // 15/10/2020 - bolinha azul
-              Container(
-                decoration: BoxDecoration(
-                    shape: BoxShape.circle, color: AppColors.secundary),
-                width: 40.0,
-                height: 40.0,
-              ),
-            ],
+                      child: Text(
+                        'ADOTAR',
+                      ),
+                    ),
+                    Text(pet.name)
+                  ],
+                ),
+                // 15/10/2020 - bolinha azul
+                Container(
+                  decoration: BoxDecoration(
+                      shape: BoxShape.circle, color: AppColors.secundary),
+                  width: 40.0,
+                  height: 40.0,
+                ),
+              ],
+            ),
           ),
-        ),
 
-        //imagem
-        Container(
-          decoration: BoxDecoration(
-            color: AppColors.cardSlide,
-            image: const DecorationImage(
-              image: NetworkImage(
-                  'https://images.wunderstock.com/Three-Brown-Puppies_2BdilPhGnYDA.jpeg'),
-              fit: BoxFit.cover,
-            ),
-            border: Border.all(
+          //imagem
+          Container(
+            decoration: BoxDecoration(
               color: AppColors.cardSlide,
-              width: 8,
-            ),
-            borderRadius: BorderRadius.circular(12),
-          ),
-          width: 320.0,
-          height: 220.0,
-        ),
-        // brenda 13/10/2020
-        // baixo
-        Padding(
-          padding: EdgeInsets.only(left: 48.0, right: 48.0),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Column(
-                children: [
-                  Container(
-                    child: Text('Publicado hoje às 18:00',
-                        textAlign: TextAlign.left,
-                        overflow: TextOverflow.ellipsis),
-                  ),
-                  Container(
-                    child: Text('São Paulo',
-                        textAlign: TextAlign.left,
-                        overflow: TextOverflow.ellipsis),
-                  ),
-                ],
+              image: DecorationImage(
+                image: NetworkImage(
+                  pet.imageUrl,
+                ),
+                fit: BoxFit.cover,
               ),
-              Row(
-                children: [
-                  listadeICones(),
-                  listadeShare(),
-                ],
-              )
-            ],
+              border: Border.all(
+                color: AppColors.cardSlide,
+                width: 8,
+              ),
+              borderRadius: BorderRadius.circular(12),
+            ),
+            width: 320.0,
+            height: 220.0,
           ),
-        ),
-      ],
-    ),
-    // brenda 13/10/2020
-    decoration: BoxDecoration(
-      color: AppColors.cardSlide,
-      borderRadius: BorderRadius.circular(12),
+          // brenda 13/10/2020
+          // baixo
+          Padding(
+            padding: EdgeInsets.only(left: 48.0, right: 48.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Column(
+                  children: [
+                    Container(
+                      child: Text(
+                        'Publicado hoje às 18:00',
+                        textAlign: TextAlign.left,
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                    ),
+                    Container(
+                      child: Text(
+                        'São Paulo',
+                        textAlign: TextAlign.left,
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                    ),
+                  ],
+                ),
+                Row(
+                  children: [
+                    listadeICones(),
+                    listadeShare(),
+                  ],
+                )
+              ],
+            ),
+          ),
+        ],
+      ),
+      // brenda 13/10/2020
+      decoration: BoxDecoration(
+        color: AppColors.cardSlide,
+        borderRadius: BorderRadius.circular(12),
+      ),
     ),
   );
 }
