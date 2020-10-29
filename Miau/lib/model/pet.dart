@@ -1,4 +1,5 @@
 class Pet {
+  final int _codpet;
   final String _name;
   final String _publishingDate;
   final String _city;
@@ -7,7 +8,7 @@ class Pet {
   final String _ownerImage;
   final String _ownerPhone;
 
-  Pet(this._name, this._publishingDate, this._city, this._imageUrl,
+  Pet(this._codpet,this._name, this._publishingDate, this._city, this._imageUrl,
       this._ownerName, this._ownerImage, this._ownerPhone);
 
   String get ownerPhone => _ownerPhone;
@@ -23,4 +24,6 @@ class Pet {
   String get publishingDate => _publishingDate;
 
   String get name => _name;
+
+  int get codpet => _codpet;
 }

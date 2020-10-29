@@ -38,6 +38,7 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   List<Pet> list = [
     Pet(
+       1,
       'Kiko',
       '17/10/2020',
       'São Paulo',
@@ -47,10 +48,11 @@ class _MyHomePageState extends State<MyHomePage> {
       '(99) 99999-9999',
     ),
     Pet(
+       2,
       'Leandro',
       '17/10/2020',
       'São Paulo',
-      'https://img.ibxk.com.br/2014/06/06/06165614150388.jpg?w=1120&h=420&mode=crop&scale=both',
+      'https://s2.glbimg.com/5IEojOCGN6bgFV5L2K_RKB5dtvk=/e.glbimg.com/og/ed/f/original/2020/03/31/cat-4548812_960_720.jpg',
       'Laura',
       '',
       '(99) 99999-9999',
