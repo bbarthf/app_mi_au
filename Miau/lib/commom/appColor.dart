@@ -17,5 +17,8 @@ class AppColors {
   static const Color backgroud = const Color(0xFFFFA726);
 
   static const Color secundary = const Color(0xFF597EFF);
+  static const Color verdinho = const Color(0x90DFAA);
+  
+  static const Color vermelhinho = const Color(0xD02020);
   static const Color backgndAvatar = Colors.amber;
 }

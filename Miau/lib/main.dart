@@ -1,11 +1,26 @@
+
+import 'package:Miau/carregamento.dart';
+import 'package:Miau/dialogo.dart';
+import 'package:Miau/login.dart';
 import 'package:Miau/model/pet.dart';
+import 'package:Miau/principal.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-
+import 'package:flutter/widgets.dart';
 import 'commom/appColor.dart';
 
+
+
 void main() {
-  runApp(MyApp());
+   runApp(MyApp());
+   /*routes:{
+     
+     Carregamento.routeName: (context) => Carregamento(),
+     LoginMiau.routeName: (context) => LoginMiau(),
+     Principal.routeName: (context) => Principal(),
+     Dialogo.routeName: (context) => Dialogo()
+   }, */
 }
 
 class MyApp extends StatelessWidget {
@@ -43,8 +58,8 @@ class _MyHomePageState extends State<MyHomePage> {
       '17/10/2020',
       'São Paulo',
       'https://images.wunderstock.com/Three-Brown-Puppies_2BdilPhGnYDA.jpeg',
-      'Laura',
-      '',
+      'Brenda Barth',
+      'https://scontent.fbjp1-1.fna.fbcdn.net/v/t1.0-9/81789904_2943828889048184_8353975943525564416_o.jpg?_nc_cat=101&ccb=2&_nc_sid=09cbfe&_nc_eui2=AeHoyC6SLqCmtEAbkgeRMExzqmKR-II3GZeqYpH4gjcZl11NqPThPguk9glsh90MdTi9ykOwFPWkieTMjaMn1GCi&_nc_ohc=g2U56kMPBoEAX8GDk6S&_nc_ht=scontent.fbjp1-1.fna&oh=0519385b2f286eda40bbe85095ecc86e&oe=5FC7832C',
       '(99) 99999-9999',
     ),
     Pet(
@@ -53,8 +68,8 @@ class _MyHomePageState extends State<MyHomePage> {
       '17/10/2020',
       'São Paulo',
       'https://s2.glbimg.com/5IEojOCGN6bgFV5L2K_RKB5dtvk=/e.glbimg.com/og/ed/f/original/2020/03/31/cat-4548812_960_720.jpg',
-      'Laura',
-      '',
+      'Rafael Fernandes',
+      'https://scontent.fbjp1-1.fna.fbcdn.net/v/t1.0-9/49719622_2274360636182356_6239996871545192448_o.jpg?_nc_cat=109&ccb=2&_nc_sid=09cbfe&_nc_eui2=AeEKUolm6pQcm_ZxtazRfUySlgURl3UFFUmWBRGXdQUVSYyFLaWUQGSdnxcC8Tf0B1KnlrChiSWV0eYAgyYr0Asq&_nc_ohc=aQk4rKlTSo0AX96-mgP&_nc_ht=scontent.fbjp1-1.fna&oh=679ff55d41c5450f7c19911645e9fe7c&oe=5FC6F4B1',
       '(99) 99999-9999',
     )
   ];
@@ -69,17 +84,118 @@ class _MyHomePageState extends State<MyHomePage> {
     return ret;
   }
 
+  // barra de baixo 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.title),
+        // cor de fundo
+         backgroundColor: AppColors.secundary,
+        // aumenta o tamanho da toolbar 
+      
+        bottom:PreferredSize(
+        preferredSize: Size(400,65),
+        child: Padding(
+           
+          padding: EdgeInsets.only(bottom: 68.0,left: 69.0, right: 69.0),
+          child: Container(
+                decoration: BoxDecoration(
+                color: AppColors.cardSlide,
+                borderRadius: BorderRadius.circular(12),
+              ),
+          child: 
+           // barrinha da app bar 
+           Padding(
+             // inserir as margens da linha do top
+            padding: EdgeInsets.only(left:8.0),
+             child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                 Padding(
+                   padding: EdgeInsets.only(top: 8.0),
+                   child: listadeLista(),
+                 ),
+                 // icone do app
+                 Container(
+                          decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          image: const DecorationImage(image: NetworkImage('https://scontent.fbjp1-1.fna.fbcdn.net/v/t1.0-9/123652073_3690627654368300_2410754137642726187_n.jpg?_nc_cat=101&ccb=2&_nc_sid=730e14&_nc_eui2=AeGPHJvhxn3GPea8E2xh9yId--CLUjhqvxT74ItSOGq_FBfSAs_-p2FjR5KR9MtEH1otKVd13Q9xfh4aVwfrU1PU&_nc_ohc=PuxscGgdzOkAX_7Bslj&_nc_ht=scontent.fbjp1-1.fna&oh=123dd6449b06365a49aee8f443f52800&oe=5FC7A23B'),fit: BoxFit.cover),   
+                        ),
+                     width: 40.0,
+                     height:40.0,
+                     ),
+                 Padding(
+                   padding:  EdgeInsets.only(top: 13.0),
+                   child: Container(
+                        child: Text(
+                          "Pesquisar Pet",
+                           textAlign: TextAlign.center,
+                         // textAlign: TextAlign.left,
+                         overflow: TextOverflow.ellipsis,
+                        ),
+                      ),
+                 ),
+                Padding(
+                  padding: EdgeInsets.only(top: 8.0),
+                  child: listadesearch(),
+                ), 
+              ],
+            ),
+            
+           ),
+          
+          width: 340.0,
+          height: 45.0,
+          ),
+        ),
+        )
       ),
+
+      // abinha de baixo 
+        bottomNavigationBar: BottomAppBar(
+                                      child : Container(
+                                            height:60.0,
+                                            color: AppColors.secundary,    
+                                      ),
+                                 ),
+        floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,                         
+        floatingActionButton: FloatingActionButton(
+           backgroundColor: AppColors.secundary,
+           onPressed:() {
+              print("Doar");
+            },
+           child: Icon(Icons.add),
+           foregroundColor: AppColors.cardSlide,
+         ), 
+      
       body: Container(
         color: AppColors.backgroud,
-        child: ListView(
-          children: _createCards(list),
-        ),
+        child:  FlatButton(
+                     shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(10),
+
+                     ),
+                      onPressed: ( ) {
+                        Navigator.push(
+                                     context,
+                                     MaterialPageRoute( 
+                                     builder:(BuildContext context) =>Dialogo()
+                                  )); 
+                        
+
+                      },
+                      color: AppColors.secundary,
+                      child: Text(
+                        'ADOTAR',
+                      ),
+                      textColor: Colors.white
+                ),
+       /* child: ListView(
+        children: _createCards(list),
+
+        ), */
+
       ),
     );
   }
@@ -97,9 +213,10 @@ Widget card(Pet pet) {
           //linha
           Padding(
             // inserir as margens da linha do top
-            padding: EdgeInsets.only(top: 20.0, left: 48.0, right: 48.0),
+            padding: EdgeInsets.only(top: 10.0, left: 69.0, right: 69.0),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 // brenda 15/10/2020
                 Column(
@@ -107,22 +224,47 @@ Widget card(Pet pet) {
                   crossAxisAlignment: CrossAxisAlignment.start, //vertica
                   children: [
                     FlatButton(
-                      onPressed: () {},
+                     shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(10),
+
+                     ),
+                      onPressed: ( ) {
+                      /*   Navigator.push(
+                                     context,
+                                     MaterialPageRoute( 
+                                     builder:(BuildContext context) =>Dialogo()
+                                  )); */
+                        
+
+                      },
                       color: AppColors.secundary,
                       child: Text(
                         'ADOTAR',
                       ),
+                      textColor: Colors.white
                     ),
                     Text(pet.name)
                   ],
                 ),
                 // 15/10/2020 - bolinha azul
-                Container(
-                  decoration: BoxDecoration(
-                      shape: BoxShape.circle, color: AppColors.secundary),
-                  width: 40.0,
-                  height: 40.0,
+                Column(
+                  children: [
+                    Container(
+                      decoration: BoxDecoration(
+                          shape: BoxShape.circle, color: AppColors.secundary,
+                          image: DecorationImage( image: NetworkImage( pet.ownerImage)),
+                     ),
+                      width: 45.0,
+                      height:45.0,
+                    ),
+                    Text(pet.ownerName,
+                         style: TextStyle(
+                                decoration: TextDecoration.underline,
+                         ),
+                      )
+                  ],
                 ),
+               
               ],
             ),
           ),
@@ -149,24 +291,26 @@ Widget card(Pet pet) {
           // brenda 13/10/2020
           // baixo
           Padding(
-            padding: EdgeInsets.only(left: 48.0, right: 48.0),
+            padding: EdgeInsets.only(left: 69.0, right: 69.0),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Column(
+                  crossAxisAlignment: CrossAxisAlignment.start, //vertica
                   children: [
                     Container(
                       child: Text(
-                        'Publicado hoje às 18:00',
+                        "Publicado às " + pet.publishingDate,
                         textAlign: TextAlign.left,
                         overflow: TextOverflow.ellipsis,
                       ),
                     ),
                     Container(
                       child: Text(
-                        'São Paulo',
-                        textAlign: TextAlign.left,
+                        pet.city,
+                        textAlign: TextAlign.right,
                         overflow: TextOverflow.ellipsis,
+                        
                       ),
                     ),
                   ],
@@ -197,7 +341,7 @@ Widget listadeShare() {
     children: const <Widget>[
       Icon(
         Icons.share,
-        color: Colors.pink,
+        color: Colors.lightBlueAccent,
         size: 24.0,
         semanticLabel: 'Text to announce in accessibility modes',
       ),
@@ -212,6 +356,76 @@ Widget listadeICones() {
       Icon(
         Icons.favorite,
         color: Colors.pink,
+        size: 24.0,
+        semanticLabel: 'Text to announce in accessibility modes',
+      ),
+    ],
+  );
+}
+
+Widget listadeLista() {
+  return Row(
+    mainAxisAlignment: MainAxisAlignment.spaceAround,
+    children: const <Widget>[
+      Icon(
+        Icons.list,
+        color: Colors.grey,
+        size: 24.0,
+        semanticLabel: 'Text to announce in accessibility modes',
+      ),
+    ],
+  );
+}
+
+Widget listadesearch() {
+  return Row(
+    mainAxisAlignment: MainAxisAlignment.spaceAround,
+    children: const <Widget>[
+      Icon(
+        Icons.search,
+        color: Colors.grey,
+        size: 24.0,
+        semanticLabel: 'Text to announce in accessibility modes',
+      ),
+    ],
+  );
+}
+
+Widget listadeFiltro() {
+  return Row(
+    mainAxisAlignment: MainAxisAlignment.spaceAround,
+    children: const <Widget>[
+      Icon(
+        Icons.filter_list,
+        color: Colors.grey,
+        size: 24.0,
+        semanticLabel: 'Text to announce in accessibility modes',
+      ),
+    ],
+  );
+}
+
+Widget listadeFavorite() {
+  return Row(
+    mainAxisAlignment: MainAxisAlignment.spaceAround,
+    children: const <Widget>[
+      Icon(
+        Icons.favorite_border,
+        color: Colors.grey,
+        size: 24.0,
+        semanticLabel: 'Text to announce in accessibility modes',
+      ),
+    ],
+  );
+}
+
+Widget listadecategoria() {
+  return Row(
+    mainAxisAlignment: MainAxisAlignment.spaceAround,
+    children: const <Widget>[
+      Icon(
+        Icons.grid_on,
+        color: Colors.grey,
         size: 24.0,
         semanticLabel: 'Text to announce in accessibility modes',
       ),
