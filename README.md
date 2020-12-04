@@ -71,7 +71,7 @@ class Pet {
 }
 
 # AUTOR
-Brenda Barth Ferreira 
-Rafael Fernandes 
+Brenda Barth Ferreira <br>
+Rafael Fernandes <br>
 
 ![4d371fc6-0776-481d-a3f3-d72ff015d253](https://user-images.githubusercontent.com/69700727/101116132-4821c680-35c3-11eb-97cc-f9a9ef5ff022.jpg)
