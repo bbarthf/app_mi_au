@@ -1,6 +1,8 @@
 # MEU Mi-au
 Aplicativo desenvolvido em flutter para conectar pessoas que procuram pets para adoção e pessoas que gostariam de doa-los.
 
+![Cpia de Free Logo Space Template - Feito com PosterMyWall 1](https://user-images.githubusercontent.com/69700727/101115057-74d4de80-35c1-11eb-9cd7-253ab84da395.png)
+
 # Status
 Em andamento.
 
@@ -12,9 +14,10 @@ O objetivo deste app é proporcionar ao usuário a possibilidade de adotar, doar
 Este projeto é totalmente em Dart9Flutter), e, tem suporte do banco de dados firebase onde os dados referente aos pets são lidos e ocorre a o login autenticado com o usuário do google.Atualmente o projeto estará efetuando o primeiro entregável dia 03/12/2020, porém o projeto permanecerá em constante evolução.
 
 # Requisitos
-Até o momento, foi utilizado apenas as ferramentas: VS Code; kid de desenvolvendo da Google, Flutter; Android SDK; e para controle de versão - GitHub
-Tutorial para instalação do flutter e link com o Git: https://medium.com/flutter-comunidade-br/instalando-e-configurando-flutter-no-windows-cae74711df1e
-Tutorial sincronização com banco de dados na nuvem do google Firebase: https://www.youtube.com/watch?v=WG5tJIAq5b0
+Até o momento, foi utilizado apenas as ferramentas: VS Code; kid de desenvolvendo da Google, Flutter; Android SDK; e para controle de versão - GitHub <br>
+Tutorial para instalação do flutter e link com o Git: https://medium.com/flutter-comunidade-br/instalando-e-configurando-flutter-no-windows-cae74711df1e <br>
+Tutorial sincronização com banco de dados na nuvem do google Firebase: https://www.youtube.com/watch?v=WG5tJIAq5b0 <br>
+Para desenho de telas foi utilizado o aplicativo online Figma: https://www.figma.com 
 
 # Funcionamento
 - O usuário irá logar no app MeuMiau e deve autenticar suas credências com o e-mail do google
@@ -24,16 +27,16 @@ Tutorial sincronização com banco de dados na nuvem do google Firebase: https:/
 - Ao clicar em "Sim" o sistema compartilha o pet com algum usuário de whatsapp do usuário.
 
 # Movimentos futuros
-- Criar cadastramento com validação no banco de dados firebase
-- Criar perfil "Quero Adotar" e "Quero doar".
-  *Quero Doar: Perfil onde será cadastrado os cards de pets e o dono poderá incluir ou retirar os pets quando desejados, os pets que apareceram no feed serão os peds       cadastrados pelo os seus donos
-  *Quero Adotar: Perfil para quem está procurando um pet para adotar, o usuário irá realizar o cadastramento demonstrando o interesse pelo tipo de pet que seja e navegará no feed para o encontrar. 
-- Criar link entre dono e usuário da adoção, onde quando o usuário desejar entrar em contato com o dono do pet o sistema abrirá um diálogo diretamente com o número de whatsapp cadastrado no sistema de "Quero doar".
-- Dsenvolver login por biometria
-- Melhorar diálogo de decisão
-- Criar geolocalização para melhor demonstrar os pets diponíveis na região do usuário que deseja adotar. 
-- Melhorar layout das telas
-- CRUD completo no firebase para inserir, excluir, alterar e ler do banco de dadoas firebase. 
+- Criar cadastramento com validação no banco de dados firebase<br>
+- Criar perfil "Quero Adotar" e "Quero doar". <br>
+  Quero Doar: Perfil onde será cadastrado os cards de pets e o dono poderá incluir ou retirar os pets quando desejados, os pets que apareceram no feed serão os peds       cadastrados pelo os seus donos<br>
+  Quero Adotar: Perfil para quem está procurando um pet para adotar, o usuário irá realizar o cadastramento demonstrando o interesse pelo tipo de pet que seja e navegará no feed para o encontrar. <br>
+- Criar link entre dono e usuário da adoção, onde quando o usuário desejar entrar em contato com o dono do pet o sistema abrirá um diálogo diretamente com o número de whatsapp cadastrado no sistema de "Quero doar".<br>
+- Dsenvolver login por biometria<br>
+- Melhorar diálogo de decisão<br>
+- Criar geolocalização para melhor demonstrar os pets diponíveis na região do usuário que deseja adotar. <br>
+- Melhorar layout das telas<br>
+- CRUD completo no firebase para inserir, excluir, alterar e ler do banco de dadoas firebase. <br>
 
 # Classe principal - PETS 
 
@@ -69,5 +72,5 @@ class Pet {
 
 # AUTOR
 Brenda Barth Ferreira 
-
+Rafael Fernandes 
 
