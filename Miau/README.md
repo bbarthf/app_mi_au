@@ -1,4 +1,4 @@
-# MEU Mi-au
+# MEU Mi-Au
 Aplicativo desenvolvido em flutter para conectar pessoas que procuram pets para adoção e pessoas que gostariam de doa-los.
 
 ![Cpia de Free Logo Space Template - Feito com PosterMyWall 1](https://user-images.githubusercontent.com/69700727/101115057-74d4de80-35c1-11eb-9cd7-253ab84da395.png)
@@ -73,4 +73,8 @@ class Pet {
 # AUTOR
 Brenda Barth Ferreira 
 Rafael Fernandes 
+
+![4d371fc6-0776-481d-a3f3-d72ff015d253](https://user-images.githubusercontent.com/69700727/101116132-4821c680-35c3-11eb-97cc-f9a9ef5ff022.jpg)
+
+
 
