@@ -11,7 +11,7 @@ O projeto foi desenvolvido na universidade São Francisco - Itatiba na disciplin
 O objetivo deste app é proporcionar ao usuário a possibilidade de adotar, doar e entrar em contato com pessoas com os mesmos interesses através de ferramenta de link com Whatsapp.
 
 # Desenvolvimento
-Este projeto é totalmente em Dart9Flutter), e, tem suporte do banco de dados firebase onde os dados referente aos pets são lidos e ocorre a o login autenticado com o usuário do google.Atualmente o projeto estará efetuando o primeiro entregável dia 03/12/2020, porém o projeto permanecerá em constante evolução.
+Este projeto é totalmente em Dart Flutter, e, tem suporte do banco de dados firebase onde os dados referente aos pets são lidos e ocorre a o login autenticado com o usuário do google.Atualmente o projeto estará efetuando o primeiro entregável dia 03/12/2020, porém o projeto permanecerá em constante evolução.
 
 # Requisitos
 Até o momento, foi utilizado apenas as ferramentas: VS Code; kid de desenvolvendo da Google, Flutter; Android SDK; e para controle de versão - GitHub <br>
