@@ -1,16 +1,13 @@
-# Miau
+# MEU Mi-au
+Aplicativo desenvolvido em flutter para conectar pessoas que procuram pets para adoção e pessoas que gostariam de doa-los.
 
-A new Flutter project.
+#STATUS
+Em andamento.
 
-## Getting Started
+#OBJETIVO
+O projeto foi desenvolvido na universidade São Francisco - Itatiba na disciplina de dispositivos moveis.
+O objetivo deste app é proporcionar ao usuário a possibilidade de adotar, doar e entrar em contato com pessoas com os mesmos interesses através de ferramenta de link com Whatsapp.
 
-This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
